@@ -1,0 +1,27 @@
+{
+  "name": "jangle-io",
+  "version": "1.0.0",
+  "description": "Website for Jangle",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node_modules/nuxt/bin/nuxt"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://www.github.com/ryannhg/jangle-io"
+  },
+  "keywords": [
+    "jangle",
+    "cms",
+    "website"
+  ],
+  "author": "Ryan Haskell-Glatz",
+  "license": "ISC",
+  "dependencies": {
+    "nuxt": "^1.0.0-rc11"
+  },
+  "devDependencies": {
+    "node-sass": "^4.7.2",
+    "sass-loader": "^6.0.6"
+  }
+}
