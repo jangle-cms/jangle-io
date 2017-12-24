@@ -1,0 +1,23 @@
+.rich-text a,
+.link {
+
+  $underline-thickness: 4px;
+
+  display: inline;
+  color: $colors__coral;
+  font-weight: 600;
+  transition: color .3s ease-in-out, background-size .3s ease-in-out;
+  position: relative;
+  background-image: linear-gradient(to bottom, $colors__coral 0%, $colors__coral 100%);
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  background-size: 0 $underline-thickness;
+  position: relative;
+
+  &:hover,
+  &:focus,
+  &.link--active {
+    color: $colors__coral;
+    background-size: 100% $underline-thickness;
+  }
+}

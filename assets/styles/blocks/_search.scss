@@ -1,0 +1,36 @@
+.search {
+  position: relative;
+
+  &__wrapper {
+    border: solid 1px #eee;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 1rem;
+    transition: width .3s ease-in-out;
+
+    &--expanded {
+      width: 10rem;
+    }
+  }
+
+  &__input {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    left: .75rem;
+    width: calc(100% - 3.25rem);
+  }
+
+  &__button {
+    position: absolute;
+    display: block;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background-color: white;
+    width: calc(2rem + 2px);
+    border-radius: 1rem;
+    border: solid 1px #eee;
+  }
+
+}

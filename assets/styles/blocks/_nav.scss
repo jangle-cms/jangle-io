@@ -1,0 +1,45 @@
+.nav {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+  border-bottom: solid 1px #eee;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    height: 4rem;
+  }
+
+  &__brand {
+    font-weight: $fonts__bold;
+    font-family: $fonts__header;
+    font-size: 2rem;
+  }
+
+  &__spacer {
+    flex: 1;
+  }
+
+  &__links {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  &__link {
+    &:not(:first-child) {
+      margin-left: 1rem;
+    }
+  }
+
+  &__search {
+  }
+
+  &__content {
+    flex: 1;
+    border-right: solid 1px #eee;
+  }
+
+}

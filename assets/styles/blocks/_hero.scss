@@ -1,0 +1,49 @@
+.hero {
+  background-color: $colors__white;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+
+    &--medium {
+      padding-top: 0;
+      padding-bottom: 0;
+      min-height: 50vh;
+    }
+  }
+
+  &__title {
+    font-family: $fonts__header;
+    font-size: 80px;
+  }
+
+  &__subtitle {
+    margin-top: 1rem;
+    font-size: 24px;
+  }
+
+  &--jet {
+    background-color: $colors__jet;
+    color: $colors__white;
+  }
+
+  &--blue {
+    background-color: $colors__blue;
+    color: $colors__white;
+  }
+
+  &--coral {
+    background-color: $colors__coral--dark;
+    color: $colors__white;
+  }
+
+  &--steel {
+    background-color: $colors__steel;
+    color: $colors__white;
+  }
+
+}

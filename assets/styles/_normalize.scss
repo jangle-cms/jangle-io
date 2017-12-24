@@ -1,0 +1,48 @@
+html, body {
+  height: 100%;
+  font-family: $fonts__body;
+  font-weight: $fonts__normal;
+  font-size: 20px;
+  color: $colors__jet;
+}
+
+#__nuxt {
+  height: 100%;
+}
+
+.nuxt-progress {
+  top: 4rem !important;
+}
+
+// Resets
+a,
+input,
+button {
+  &:focus,
+  &:hover {
+    outline: none;
+  }
+}
+
+input {
+  border: none;
+  font: inherit;
+  color: inherit;
+  padding: 0;
+}
+
+button {
+  border-radius: 0;
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
