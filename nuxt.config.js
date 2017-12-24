@@ -10,7 +10,7 @@ module.exports = {
       { hid: 'description', name: 'description', content: 'a cms for humans.' }
     ],
     link: [
-      { rel: 'stylesheet', href: 'http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css' },
+      { rel: 'stylesheet', href: 'https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i|Source+Sans+Pro:600,600i' },
       { rel: 'icon', href: '/jangle-circle.png' }
     ]
