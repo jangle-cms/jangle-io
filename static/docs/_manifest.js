@@ -1,29 +1,57 @@
 module.exports = [
   {
-    title: 'Getting Started',
-    file: 'getting-started',
+    title: 'Introduction',
+    file: 'intro',
     children: [
       {
-        title: 'Installation',
-        file: 'installation'
-      },
-      {
-        title: 'Creating our First User',
-        file: 'creating-our-first-user'
+        title: 'Overview',
+        file: 'overview'
       }
     ]
   },
   {
-    title: 'Services',
-    file: 'services',
+    title: 'Jangle CMS',
+    file: 'cms',
     children: [
       {
-        title: 'Introduction',
-        file: 'introduction'
+        title: 'Jangle CMS',
+        file: 'overview'
+      }
+    ]
+  },
+  {
+    title: 'Jangle API',
+    file: 'api',
+    children: [
+      {
+        title: 'Jangle API',
+        file: 'overview'
+      }
+    ]
+  },
+  {
+    title: 'Jangle Core',
+    file: 'core',
+    children: [
+      {
+        title: 'Jangle Core',
+        file: 'overview'
       },
       {
-        title: 'Content Services',
-        file: 'content-services'
+        title: 'Services',
+        file: 'services'
+      },
+      {
+        title: 'Authentication',
+        file: 'authentication'
+      },
+      {
+        title: 'History',
+        file: 'history'
+      },
+      {
+        title: 'Publishing',
+        file: 'publishing'
       }
     ]
   }

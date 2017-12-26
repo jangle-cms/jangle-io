@@ -1,15 +1,20 @@
 .docs {
-  height: 100%;
-  display: flex;
-  overflow: hidden;
-
-  &__main {
-    flex: 1;
-    overflow: auto;
+  &__content {
+    box-sizing: border-box;
+    padding: 2rem;
   }
 
-  &__content {
-    padding: 2rem;
+  &__container {
+    padding: 0;
+  }
+
+  @include respond-to(small) {
+    &__mobile-only {
+      display: none;
+    }
+    &__main {
+      margin-left: 280px;
+    }
   }
 }
 

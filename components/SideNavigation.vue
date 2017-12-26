@@ -1,5 +1,8 @@
 <template>
-  <aside class="sidenav">
+  <aside class="sidenav" v-bind:class="{
+    'sidenav--visible': routeNeedsSidenav,
+    'sidenav--fixed': fixed
+  }">
     <section class="sidenav__section"
       v-if="hasChildren(section)"
       v-bind:class="sectionClasses(section)"
@@ -18,9 +21,13 @@
 
 <script>
 export default {
+  props: ['fixed'],
   computed: {
     sections () {
       return this.$store.state.docs
+    },
+    routeNeedsSidenav () {
+      return this.$route.path.indexOf('/docs') > -1
     }
   },
   methods: {

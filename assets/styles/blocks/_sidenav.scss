@@ -1,10 +1,24 @@
 .sidenav {
-  max-width: 256px;
-  border-right: solid 1px $colors__gray--light;
   height: 100%;
   box-sizing: border-box;
-  padding: 1rem;
-  overflow: auto;
+  padding: 2rem;
+
+  &--fixed {
+    max-width: 280px;
+    border-right: solid 1px $colors__gray--light;
+    background-color: $colors__white;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 2rem;
+    right: 0;
+    bottom: 0;
+    padding: 1rem;
+    padding-right: 2rem;
+
+    transition: transform .5s ease-in-out;
+    transform: translateX(-100vw);
+  }
 
   &__section {
     padding-top: 1rem;
@@ -17,5 +31,21 @@
 
   &__link-item {
     padding-top: .5rem;
+    font-size: 18px;
+  }
+
+  &__container.container {
+    position: fixed;
+    top: 4rem;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 100%;
+  }
+
+  @include respond-to(small) {
+    &--visible {
+      transform: none;
+    }
   }
 }

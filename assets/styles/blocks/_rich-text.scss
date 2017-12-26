@@ -41,18 +41,29 @@
     font-size: 20px;
   }
 
+  ul, ol {
+    padding-left: 1.5rem;
+  }
+
   ol {
     list-style: decimal;
   }
 
   ul {
     list-style: disc;
-    padding-left: 1.5rem;
   }
 
-  p, li, pre {
+  p, ul, ol, pre {
     line-height: 1.5;
     margin-top: 1rem;
+  }
+
+  li {
+    margin-top: .5rem;
+    > p {
+      line-height: 1.2;
+      margin-top: .5rem;
+    }
   }
 
   strong {
@@ -63,10 +74,41 @@
     font-style: italic;
   }
 
+  p, li {
+    > code {
+      padding: .0625em .25em;
+      border: solid 1px #e6e6e6;
+      border-radius: 2px;
+    }
+  }
+
+  blockquote p > code {
+    border: none;
+  }
+  
+  
   code {
+    background-color: $colors__gray--lighter;
     font-family: monospace;
-    padding: 2rem;
-    margin: 0 -2rem;
+  }
+
+  pre code {
+    padding: 1rem;
+    border-left: solid 4px $colors__steel;
+    margin-right: -2rem;
+    margin-left: -.5rem;
+  }
+
+  blockquote {
+    margin-top: 1rem;
+    margin-right: -2rem;
+    margin-left: -.5rem;
+    padding: 1rem;
+    border-left: solid 4px $colors__steel;
+    background-color: $colors__gray--lighter;
+    > * {
+      margin-top: 0;
+    }
   }
 
   table {
@@ -83,8 +125,15 @@
       }
     }
     th, td {
-      padding: .5rem;
+      padding: 1rem .5rem;
       vertical-align: middle;
     }
+  }
+
+  hr {
+    margin: 0 -2rem;
+    margin-top: 2rem;
+    border: 0;
+    border-bottom: solid 1px $colors__gray--light; 
   }
 }

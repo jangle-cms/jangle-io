@@ -4,7 +4,7 @@
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1;
+  z-index: 2;
   background-color: white;
   border-bottom: solid 1px #eee;
 
@@ -26,7 +26,6 @@
 
   &__links {
     padding-left: 1rem;
-    padding-right: 1rem;
   }
 
   &__link {
@@ -35,12 +34,15 @@
     }
   }
 
-  &__search {
-  }
-
   &__content {
     flex: 1;
     border-right: solid 1px #eee;
+  }
+
+  @include respond-to(small) {
+    &__brand {
+      padding-left: 1rem;
+    }
   }
 
 }

@@ -1,7 +1,15 @@
+var docs = require('./static/docs/_manifest')
+
+var routes = docs.map(section => section.children.map(child => `/docs/${section.file}/${child.file}`))
+  .reduce((routes, list) => routes.concat(list), [])
+
 module.exports = {
   css: [
     '@/assets/styles/main.scss'
   ],
+  generate: {
+    routes
+  },
   head: {
     title: 'Jangle',
     meta: [

@@ -1,20 +1,12 @@
-> a cms for humans.
+> The easy part!
 
-[MongoDB]() > [Mongoose]() > Jangle CMS > [Jangle API]() > [Jangle UI]()
+## Before We Start
 
-## Overview
+Let's make sure the following dependencies are ready to go:
 
-Jangle is a focused content management system, powered by MongoDB.
+- [NodeJS](https://nodejs.org/en/download/) - Runs our application
 
-It builds on top of the wonderful [Mongoose]() npm package to deliver three essential features:
-
-- __Authentication:__ Make sure your content is protected.
-- __History:__ Make tracking changes and undoing mistakes easy.
-- __Publishing:__ Control when your content should be available.
-
-After providing your Mongoose Schemas, Jangle automatically generates a layer of services.
-
-On top of these services, you can safely build a [REST API]() or [GraphQL API]().
+- [MongoDB](https://docs.mongodb.com/manual/administration/install-community/) - Stores our content
 
 ## Getting Started
 

@@ -1,6 +1,5 @@
 <template>
-  <div class="docs container">
-    <SideNavigation class="docs__sidenav" />
+  <div class="docs docs__container container">
     <div class="docs__main docs__content rich-text">
       <h1 class="docs__title" v-html="meta.title"></h1>
       <div v-if="markdown" v-html="$md.render(markdown)"></div>
@@ -14,6 +13,9 @@ import highlightjs from 'highlight.js'
 import SideNavigation from '@/components/SideNavigation'
 
 export default {
+  head: {
+    title: 'Docs | Jangle'
+  },
   data: () => ({
     path: undefined,
     markdown: undefined

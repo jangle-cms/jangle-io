@@ -12,14 +12,14 @@
         <div class="nav__links">
           <nuxt-link class="nav__link link" v-for="(link, index) in links" v-bind:key="index" v-bind:to="link.url" v-html="link.label"></nuxt-link>
         </div>
-        <div class="nav__search search">
+        <!-- <div class="nav__search search">
           <form class="search__wrapper" v-bind:class="searchWrapperClasses" v-on:submit.prevent="onSubmit">
             <input v-model="search.query" ref="input" class="search__input" type="search" placeholder="search" aria-label="Search" v-on:blur="onSearchBlur" v-on:focus="onSearchFocus" />
             <button class="search__button" aria-label="Search" v-on:click="onSearchClick" v-on:blur="onSearchBlur" v-on:focus="onSearchFocus">
               <i class="icon ion-search"></i>
             </button>
           </form>
-        </div>
+        </div> -->
       </div>
     </div>
   </header>
@@ -29,8 +29,7 @@
 export default {
   data: () => ({
     links: [
-      { url: '/learn', label: 'learn' },
-      { url: '/docs', label: 'docs' }
+      { url: '/docs', label: 'documentation' }
     ],
     search: {
       query: '',
