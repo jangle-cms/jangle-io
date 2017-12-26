@@ -1,7 +1,7 @@
 <template>
   <div class="docs container">
     <SideNavigation class="docs__sidenav" />
-    <div class="docs__content rich-text">
+    <div class="docs__main docs__content rich-text">
       <h1 class="docs__title" v-html="meta.title"></h1>
       <div v-if="markdown" v-html="$md.render(markdown)"></div>
     </div>
@@ -9,8 +9,9 @@
 </template>
 
 <script>
-import SideNavigation from '@/components/SideNavigation'
 import axios from 'axios'
+import highlightjs from 'highlight.js'
+import SideNavigation from '@/components/SideNavigation'
 
 export default {
   data: () => ({
@@ -43,6 +44,7 @@ export default {
     axios.get(`/docs/${path.folder}/${path.file}.md`)
       .then(({ data }) => {
         this.markdown = data
+        setTimeout(() => document.querySelectorAll('pre code').forEach(block => highlightjs.highlightBlock(block)), 0)
       })
   }
 }

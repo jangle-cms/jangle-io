@@ -1,8 +1,8 @@
 <template>
   <div class="docs container">
     <SideNavigation />
-    <div class="docs__content">
-      <section class="hero">
+    <div class="docs__main">
+      <section class="hero hero--coral">
         <div class="hero__container">
           <h1 class="hero__title">Docs</h1>
           <h3 class="hero__subtitle">here to help.</h3>

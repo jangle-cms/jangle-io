@@ -6,6 +6,9 @@
   h5,
   h6 {
     font-family: $fonts__header;
+    &:not(:first-child) {
+      margin-top: 2rem;
+    }
   }
 
   > * {
@@ -38,8 +41,18 @@
     font-size: 20px;
   }
 
-  p {
+  ol {
+    list-style: decimal;
+  }
+
+  ul {
+    list-style: disc;
+    padding-left: 1.5rem;
+  }
+
+  p, li, pre {
     line-height: 1.5;
+    margin-top: 1rem;
   }
 
   strong {
@@ -48,5 +61,30 @@
 
   em {
     font-style: italic;
+  }
+
+  code {
+    font-family: monospace;
+    padding: 2rem;
+    margin: 0 -2rem;
+  }
+
+  table {
+    margin-top: 1rem;
+    th {
+      text-align: left;
+      font-family: $fonts__header;
+    }
+    tr {
+      border-bottom: solid 1px $colors__gray--light;
+      transition: background-color .3s ease-in-out;
+      &:hover {
+        background-color: $colors__gray--lighter;
+      }
+    }
+    th, td {
+      padding: .5rem;
+      vertical-align: middle;
+    }
   }
 }
