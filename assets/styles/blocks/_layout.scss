@@ -1,9 +1,10 @@
 .layout {
 
+  height: 100%;
+
   &__page {
     padding-top: 4rem;
-  }
-  
-  &__page-content {
+    box-sizing: border-box;
+    height: 100%;
   }
 }

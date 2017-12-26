@@ -18,6 +18,8 @@
   "author": "Ryan Haskell-Glatz",
   "license": "ISC",
   "dependencies": {
+    "@nuxtjs/markdownit": "^1.2.0",
+    "axios": "^0.17.1",
     "nuxt": "^1.0.0-rc11"
   },
   "devDependencies": {

@@ -1,7 +1,7 @@
 <template>
-  <section class="nav">
+  <header class="nav">
     <div class="nav__container container">
-      <header class="nav__header">
+      <div class="nav__header">
         <div class="nav__brand">
           <nuxt-link to="/" class="nav__brand-link">
             <i class="nav__brand-icon"></i>
@@ -20,11 +20,9 @@
             </button>
           </form>
         </div>
-      </header>
-      <div class="nav__side">
       </div>
     </div>
-  </section>
+  </header>
 </template>
 
 <script>

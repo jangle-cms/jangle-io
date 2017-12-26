@@ -18,6 +18,12 @@ module.exports = {
   loading: {
     color: '#FA824C'
   },
+  modules: [
+    '@nuxtjs/markdownit'
+  ],
+  markdownit: {
+    injected: true
+  },
   router: {
     linkExactActiveClass: 'link--active'
   },

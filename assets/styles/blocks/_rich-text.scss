@@ -8,13 +8,7 @@
     font-family: $fonts__header;
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  p {
+  > * {
     &:not(:first-child) {
       margin-top: 1rem;
     }

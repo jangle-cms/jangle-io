@@ -1,7 +1,7 @@
 .rich-text a,
 .link {
 
-  $underline-thickness: 4px;
+  $underline-thickness: 2px;
 
   display: inline;
   color: $colors__coral;
@@ -13,6 +13,7 @@
   background-position: left bottom;
   background-size: 0 $underline-thickness;
   position: relative;
+  line-height: 1.2;
 
   &:hover,
   &:focus,
