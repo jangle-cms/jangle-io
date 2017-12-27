@@ -38,12 +38,20 @@ module.exports = [
         file: 'overview'
       },
       {
+        title: 'Configuration',
+        file: 'configuration'
+      },
+      {
         title: 'Services',
         file: 'services'
       },
       {
         title: 'Authentication',
         file: 'authentication'
+      },
+      {
+        title: 'Status',
+        file: 'status'
       },
       {
         title: 'History',

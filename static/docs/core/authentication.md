@@ -27,7 +27,7 @@ Creates an admin user, if one does not exist in the system. Returns the user's t
 
 __Example:__
 ```js
-const jangle = require('jangle-core')
+import jangle from 'jangle-core'
 
 jangle.start()
   .then(({ auth }) =>
@@ -43,7 +43,6 @@ jangle.start()
 __Helpful Context:__
 
 - [How to check if any admins exist.](/docs/core/status)
-- [Alternative to `createInitialUser`](/docs/core/configuration)
 
 ---
 
@@ -56,7 +55,7 @@ Creates a user, if the user's token points to an Admin Users. Returns the user's
 
 __Example:__
 ```js
-const jangle = require('jangle-core')
+import jangle from 'jangle-core'
 
 jangle.start()
   .then(({ auth }) =>
@@ -84,7 +83,7 @@ Signs in a user, if the provided credentials match. Returns the user's token.
 
 __Example:__
 ```js
-const jangle = require('jangle-core')
+import jangle from 'jangle-core'
 
 jangle.start()
   .then(({ auth }) =>
