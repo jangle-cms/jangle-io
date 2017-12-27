@@ -39,10 +39,4 @@
     border-right: solid 1px #eee;
   }
 
-  @include respond-to(small) {
-    &__brand {
-      padding-left: 1rem;
-    }
-  }
-
 }

@@ -3,18 +3,19 @@
   box-sizing: border-box;
   padding: 2rem;
 
+  &__container {
+    padding-left: calc(50vw - 640px);
+    position: fixed;
+    z-index: 1;
+    top: 4rem;
+    left: 0;
+    bottom: 0;
+  }
+
   &--fixed {
-    max-width: 280px;
+    width: 280px;
     border-right: solid 1px $colors__gray--light;
     background-color: $colors__white;
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    left: 2rem;
-    right: 0;
-    bottom: 0;
-    padding: 1rem;
-    padding-right: 2rem;
 
     transition: transform .5s ease-in-out;
     transform: translateX(-100vw);
@@ -32,15 +33,6 @@
   &__link-item {
     padding-top: .5rem;
     font-size: 18px;
-  }
-
-  &__container.container {
-    position: fixed;
-    top: 4rem;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 0;
-    width: 100%;
   }
 
   @include respond-to(small) {

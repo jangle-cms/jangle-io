@@ -2,7 +2,7 @@
   <div class="layout">
     <Navigation class="layout__nav" />
     <div class="layout__page">
-      <div class="sidenav__container container">
+      <div class="sidenav__container">
         <SideNavigation class="sidenav--fixed" />
       </div>
       <nuxt class="layout__page-content" />
