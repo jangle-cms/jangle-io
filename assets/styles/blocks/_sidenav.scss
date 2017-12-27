@@ -1,7 +1,7 @@
 .sidenav {
   height: 100%;
   box-sizing: border-box;
-  padding: 2rem;
+  padding: 1rem 2rem;
 
   &__container {
     padding-left: calc(50vw - 640px);
@@ -10,15 +10,14 @@
     top: 4rem;
     left: 0;
     bottom: 0;
+    transition: transform .5s ease-in-out;
+    transform: translateX(-50vw);
   }
 
   &--fixed {
     width: 280px;
     border-right: solid 1px $colors__gray--light;
     background-color: $colors__white;
-
-    transition: transform .5s ease-in-out;
-    transform: translateX(-100vw);
   }
 
   &__section {
@@ -36,7 +35,7 @@
   }
 
   @include respond-to(small) {
-    &--visible {
+    &__container--visible {
       transform: none;
     }
   }
