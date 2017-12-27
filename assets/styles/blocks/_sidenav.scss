@@ -12,6 +12,7 @@
     bottom: 0;
     transition: transform .5s ease-in-out;
     transform: translateX(-50vw);
+    display: none;
   }
 
   &--fixed {
@@ -35,6 +36,9 @@
   }
 
   @include respond-to(small) {
+    &__container {
+      display: block;
+    }
     &__container--visible {
       transform: none;
     }
