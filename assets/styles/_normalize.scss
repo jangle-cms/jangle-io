@@ -2,7 +2,7 @@ html, body {
   height: 100%;
   font-family: $fonts__body;
   font-weight: $fonts__normal;
-  font-size: 20px;
+  font-size: 18px;
   color: $colors__jet;
 }
 
@@ -45,4 +45,10 @@ a {
   font: inherit;
   color: inherit;
   cursor: pointer;
+}
+
+@include respond-to(small) {
+  html, body {
+    font-size: 20px;
+  }
 }
