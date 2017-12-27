@@ -2,7 +2,7 @@ html, body {
   height: 100%;
   font-family: $fonts__body;
   font-weight: $fonts__normal;
-  font-size: 18px;
+  font-size: 16px;
   color: $colors__jet;
 }
 
@@ -49,6 +49,6 @@ a {
 
 @include respond-to(small) {
   html, body {
-    font-size: 20px;
+    font-size: 18px;
   }
 }
