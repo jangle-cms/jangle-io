@@ -1,0 +1,25 @@
+.button {
+  display: inline-block;
+  padding: 1rem 2rem;
+  font-family: $fonts__header;
+  font-size: 20px;
+  color: $colors__jet;
+  background-color: $colors__white;
+  border: solid 2px;
+  border-radius: 4px;
+
+  transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+
+  &__row {
+    padding-top: 1rem;
+    .button:not(:last-child) {
+      margin-right: 1rem;
+    }
+  }
+
+  &:hover,
+  &:focus {
+    color: $colors__coral;
+    box-shadow: rgba(10, 10, 10, .10) 0 4px 8px;
+  }
+}

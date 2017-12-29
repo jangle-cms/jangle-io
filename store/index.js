@@ -1,5 +1,4 @@
 import Vuex from 'vuex'
-import docs from '@/static/docs/_manifest'
 
 const contains = (words, query) =>
   words.toLowerCase().indexOf(query.toLowerCase()) > -1
@@ -10,7 +9,27 @@ const highlightMatch = (words, query) =>
 const createStore = () => {
   return new Vuex.Store({
     state: {
-      docs,
+      docs: [
+        {
+          title: 'Jangle Core',
+          path: 'core',
+          methods: [
+            'start',
+            'startAsUser'
+          ],
+          types: [
+            'Config',
+            'UserConfig',
+            'ProtectedJangleCore',
+            'JangleCore'
+            // 'LiveService',
+            // 'MetaService',
+            // 'Service',
+            // 'ProtectedMetaService',
+            // 'ProtectedService'
+          ]
+        }
+      ],
       searchQuery: ''
     },
     getters: {

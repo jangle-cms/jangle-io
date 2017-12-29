@@ -8,6 +8,7 @@
     justify-content: center;
     padding-top: 4rem;
     padding-bottom: 4rem;
+    text-align: center;
 
     &--medium {
       padding-top: 0;
@@ -23,7 +24,25 @@
 
   &__subtitle {
     margin-top: 1rem;
+    line-height: 1.4;
     font-size: 1.2rem;
+  }
+
+  &__body {
+    border-left: solid 4px;
+    margin-top: 2rem;
+    padding: 1.5rem 2rem;
+  }
+
+  &__paragraph {
+    &:not(:first-child) {
+      margin-top: 1rem;
+    }
+  }
+
+  &__buttons {
+    display: block;
+    margin-top: 1rem;
   }
 
   &--jet {
@@ -44,6 +63,26 @@
   &--steel {
     background-color: $colors__steel;
     color: $colors__white;
+  }
+
+  &--left {
+    .hero__container {
+      padding: 4rem 2rem;
+      display: block;
+      text-align: left;
+    }
+    .hero__title {
+      font-size: 3rem;
+    }
+  }
+
+  @include respond-to(small) {
+
+    &--left {
+      .hero__container {
+        padding: 6rem 2rem;
+      }
+    }
   }
 
 }

@@ -4,12 +4,23 @@
       v-if="hasChildren(section)"
       v-bind:class="sectionClasses(section)"
       v-for="(section, i) in sections" v-bind:key="i">
-      <h3 class="sidenav__header" v-html="section.title"></h3>
+      <h3 class="sidenav__header">
+        <nuxt-link class="sidenav__header-link link" v-bind:to="url(section)" v-html="section.title"></nuxt-link>
+      </h3>
+      <p class="sidenav__list-heading">Methods</p>
       <ol class="sidenav__links">
         <li class="sidenav__link-item"
-          v-for="(child, j) in section.children" v-bind:key="j">
+          v-for="(child, j) in section.methods" v-bind:key="j">
           <nuxt-link
-            class="sidenav__link link" v-bind:to="url([ section, child ])" v-html="child.title"></nuxt-link>
+            class="sidenav__link link" v-bind:to="url(section, child.toLowerCase())" v-html="child"></nuxt-link>
+        </li>
+      </ol>
+      <p class="sidenav__list-heading">Types</p>
+      <ol class="sidenav__links">
+        <li class="sidenav__link-item"
+          v-for="(child, j) in section.types" v-bind:key="j">
+          <nuxt-link
+            class="sidenav__link link" v-bind:to="url(section, child.toLowerCase())" v-html="child"></nuxt-link>
         </li>
       </ol>
     </section>
@@ -27,14 +38,14 @@ export default {
     }
   },
   methods: {
-    url (sections) {
-      return `/docs/${sections.map(section => section.file).join('/')}`
+    url (section, hash) {
+      return `/docs/${section.path}` + (hash ? `#${hash}` : '')
     },
     hasChildren (section) {
-      return section && section.children && section.children.length > 0
+      return section && section.methods && section.methods.length > 0
     },
     sectionClasses (section) {
-      const isActiveSection = this.$route.params.section === section.file
+      const isActiveSection = this.$route.params.section === section.path
       return {
         'sidenav__section--active': isActiveSection
       }

@@ -1,14 +1,16 @@
 .rich-text {
+
   h1,
   h2,
   h3,
   h4,
   h5,
   h6 {
+    position: relative;
+    box-sizing: content-box;
     font-family: $fonts__header;
-    &:not(:first-child) {
-      margin-top: 2rem;
-    }
+    margin-top: -4rem;
+    padding-top: 6rem;
   }
 
   > * {
@@ -19,6 +21,7 @@
 
   h1 {
     font-size: 2.4rem;
+    padding-top: 4rem;
   }
 
   h2 {
@@ -78,6 +81,7 @@
     > code {
       padding: .0625em .25em;
       border: solid 1px #e6e6e6;
+      background-color: $colors__gray--lighter;
       border-radius: 2px;
     }
   }
@@ -86,9 +90,7 @@
     border: none;
   }
   
-  
   code {
-    background-color: $colors__gray--lighter;
     font-family: monospace;
   }
 
@@ -106,6 +108,7 @@
     padding: 1rem;
     border-left: solid 4px $colors__steel;
     background-color: $colors__gray--lighter;
+    font-family: monospace;
     > * {
       margin-top: 0;
     }
@@ -135,5 +138,19 @@
     margin-top: 2rem;
     border: 0;
     border-bottom: solid 1px $colors__gray--light; 
+  }
+
+  .ion-link {
+    display: inline-block;
+    padding-left: .25em;
+    color: $colors__steel;
+    opacity: .5;
+    transition: opacity .3s ease-in-out;
+    &:hover,
+    &:focus {
+      background: none;
+      color: $colors__steel;
+      opacity: 1;
+    }
   }
 }

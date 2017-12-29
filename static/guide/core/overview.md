@@ -2,7 +2,7 @@
 
 ---
 
-## Before We Start
+### Before We Start
 
 Let's make sure the following dependencies are ready to go:
 
@@ -10,7 +10,7 @@ Let's make sure the following dependencies are ready to go:
 
 - [MongoDB](https://docs.mongodb.com/manual/administration/install-community/) - Stores our content
 
-## Getting Started
+### Getting Started
 
 1. First, install `jangle-core` and `mongoose`:
 
@@ -24,51 +24,61 @@ npm install --save jangle-core mongoose
 const jangle = require('jangle-core')
 const { Schema } = require('mongoose')
 
-// 1. Define your Mongoose Schemas.
-const schemas = {
-  Puppy: new Schema({
-    name: String,
-    owner: String
-  })
+const jangleConfig = {
+  // 1. Define your Mongoose schemas.
+  schemas: {
+    Puppy: new Schema({
+      name: String,
+      owner: String
+    })
+  },
+  // 2. Define an initial user.
+  user: {
+    email: 'ryan@jangle.com',
+    password: 'password'
+  }
 }
 
-// 2. Define an initial user.
-const user = {
-  email: 'ryan@jangle.com',
-  password: 'password'
-}
-
-// 3. Let Jangle automatically generate services.
-jangle.start({ schemas, user })
-  .then(({ services, token }) =>
-    services.content.Puppy
-      .create(token, {
+// 3. Initialize Jangle.
+jangle
+  .start(jangleConfig)
+  .then(({ services }) =>
+    // 4. Create your first item!
+    services.Puppy
+      .create({
         name: 'Jangle',
         owner: 'Ryan'
       })
-      .then(console.log)
+      .then(puppy => {
+        console.log(puppy)
+      })
   )
-  .catch(console.error)
 ```
 
-3. In a terminal, run `node app.js`. We should see the following output:
+3.  In a terminal, run `node app.js`.
 
-```shell
+    We should see the following output:
+
+```js
 {
-  _id: '<some mongo id>',
+  _id: '<jangles-id>',
   name: 'Jangle',
   owner: 'Ryan',
   jangle: {
     version: 1,
     status: 'visible',
     created: {
-      by: '<our users mongo id>',
+      by: '<our-users-id>',
       at: '<timestamp from a few seconds ago>'
     },
     updated: {
-      by: '<our users mongo id>',
+      by: '<our-users-id>',
       at: '<timestamp from a few seconds ago>'
     },
   }
 }
 ```
+
+---
+
+__Great Job!__ In the next section, we'll take a look at [Configuration](/docs/core/configuration)

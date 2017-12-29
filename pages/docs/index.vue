@@ -1,16 +1,17 @@
 <template>
-  <div class="docs docs__container container">
-    <div class="docs__main">
-      <section class="hero hero--medium hero--steel">
-        <div class="hero__container container">
+  <div class="docs">
+      <section class="hero">
+        <div class="hero__container hero__container--medium container">
           <h1 class="hero__title">Docs</h1>
-          <h3 class="hero__subtitle">here to help.</h3>
-          <div class="hero__buttons button__row"></div>
+          <h3 class="hero__subtitle">
+            <p>"It's not done until the documentation is great."</p>
+          </h3>
+          <div class="hero__buttons">
+            <nuxt-link class="button button--blue" to="/docs/core">Jangle Core</nuxt-link>
+          </div>
         </div>
       </section>
-      <SideNavigation class="docs__mobile-only" />
     </div>
-  </div>
 </template>
 
 <script>

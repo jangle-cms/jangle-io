@@ -1,6 +1,6 @@
 > Jangle isn't one, monolithic package.
 
-We can take whichever parts we need, and leave out the rest.
+We can take whichever parts we need, and can opt out of the rest.
 
 ---
 
@@ -11,11 +11,11 @@ Jangle Core provides a layer of services so we can focus on the important part: 
 
 This adds three features top of the popular [Mongoose ODM](http://mongoosejs.com/):
 
-- __Token Authentication:__ Make sure your content is protected.
-- __History:__ Make tracking changes and undoing mistakes easy.
-- __Publishing:__ Control when your content should be available.
+- __Authentication__ - Control who has access to private content.
+- __History__ - Easily track changes and undo mistakes.
+- __Publishing__ - Decide what content should be publicly visible.
 
-Check out [Jangle Core on Github](https://github.com/ryannhg/jangle-core).
+Feel free to check out [Jangle Core on Github](https://github.com/jangle-cms/jangle-core).
 
 ---
 
@@ -28,7 +28,7 @@ Jangle Core was built with this API in mind, making endpoints easy to implement.
 
 Creating this as a different layer will allow the Jangle community to build a GraphQL endpoint later on!
 
-Check out [Jangle API on Github](https://github.com/ryannhg/jangle-api).
+_Jangle API is a work in progress, check back soon!_
 
 ---
 
@@ -43,4 +43,4 @@ Helpful error messages, allowing undos, and presenting the minimum amount of clu
 
 Leveraging the Jangle API and Jangle Core layers, Jangle CMS can focus on a delightful user experience.
 
-Check out [Jangle CMS on Github](https://github.com/ryannhg/jangle-cms).
+_Jangle CMS is a work in progress, check back soon!_
