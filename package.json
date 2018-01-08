@@ -4,7 +4,7 @@
   "description": "Website for Jangle",
   "main": "index.js",
   "scripts": {
-    "dev": "node_modules/nuxt/bin/nuxt"
+    "dev": "node_modules/.bin/nuxt"
   },
   "repository": {
     "type": "git",
