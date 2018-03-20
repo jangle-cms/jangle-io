@@ -1,5 +1,12 @@
 .rich-text {
 
+  padding-bottom: 6rem;
+
+  &--legible {
+    max-width: 70ch;
+    margin: 0 auto;
+  }
+
   h1,
   h2,
   h3,
@@ -59,6 +66,7 @@
   p, ul, ol, pre {
     line-height: 1.5;
     margin-top: 1rem;
+    font-size: 20px;
   }
 
   li {
@@ -91,7 +99,7 @@
   }
   
   code {
-    font-family: monospace;
+    font-family: $fonts__monospace;
   }
 
   pre code {
@@ -108,7 +116,7 @@
     padding: 1rem;
     border-left: solid 4px $colors__steel;
     background-color: $colors__gray--lighter;
-    font-family: monospace;
+    font-family: $fonts__monospace;
     > * {
       margin-top: 0;
     }

@@ -2,23 +2,23 @@
 .link {
 
   $underline-thickness: 2px;
+  $underline-color: rgba($colors__coral, .5);
 
   display: inline;
   color: $colors__coral;
   transition: color .3s ease-in-out, background-size .3s ease-in-out;
   position: relative;
-  background-image: linear-gradient(to bottom, $colors__coral 0%, $colors__coral 100%);
+  background-image: linear-gradient(to bottom, $underline-color 0%, $underline-color 100%);
   background-repeat: no-repeat;
   background-position: left bottom;
   background-size: 0 $underline-thickness;
-  position: relative;
+  font-weight: 600;
   line-height: 1.2;
   z-index: 0;
 
   &:hover,
   &:focus,
   &.link--active {
-    color: $colors__coral;
     background-size: 100% $underline-thickness;
   }
 }

@@ -1,0 +1,55 @@
+.listings {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -2rem;
+
+  &__item {
+    box-sizing: border-box;
+    flex: 1;
+    min-width: 360px;
+    max-width: 80ch;
+    padding: 2rem;
+  }
+
+  &__title {
+    font-size: 32px;
+  }
+
+  &__subtitle {
+    font-size: 20px;
+    font-weight: 400;
+    margin-top: 0;
+    line-height: 1.5;
+  }
+
+  &__excerpt {
+    font-size: 20px;
+    margin-top: 8px;
+    line-height: 1.5;
+  }
+
+  &__buttons {
+    display: flex;
+    margin-top: 16px;
+  }
+
+  &__tags {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 8px;
+  }
+
+  &__tag {
+    padding: 2px 12px;
+    padding-bottom: 4px;
+    line-height: 1;
+    border-radius: 16px;
+    border: solid 1px;
+    font-size: 16px;
+    color: $colors__coral--light;
+    &:not(:last-child) {
+      margin-right: 8px;
+    }
+  }
+
+}

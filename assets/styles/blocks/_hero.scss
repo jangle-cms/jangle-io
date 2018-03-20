@@ -1,87 +1,46 @@
 .hero {
-  background-color: $colors__white;
 
-  &__container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-    text-align: center;
+  // background-color: #faf3f3;
+  padding: 8rem 0;
+  text-align: center;
+  margin: 0;
+  border-bottom: solid 1px #eee;
 
-    &--medium {
-      padding-top: 0;
-      padding-bottom: 0;
-      min-height: 50vh;
-    }
+  &--coral {
+    background-color: $colors__coral;
+    color: white;
   }
 
   &__title {
-    font-family: $fonts__header;
-    font-size: 4rem;
+    font-size: 6rem;
+    font-weight: 600;
+    line-height: 1;
   }
 
   &__subtitle {
-    margin-top: 1rem;
-    line-height: 1.4;
-    font-size: 1.2rem;
-  }
-
-  &__body {
-    border-left: solid 4px;
-    margin-top: 2rem;
-    padding: 1.5rem 2rem;
-  }
-
-  &__paragraph {
-    &:not(:first-child) {
-      margin-top: 1rem;
-    }
+    margin-top: .5rem;
+    font-size: 32px;
+    font-weight: 400;
+    max-width: 50ch;
+    margin: 0 auto;
+    margin-top: 12px;
   }
 
   &__buttons {
-    display: block;
-    margin-top: 1rem;
+    margin-top: 32px;
   }
 
-  &--jet {
-    background-color: $colors__jet;
-    color: $colors__white;
-  }
-
-  &--blue {
-    background-color: $colors__blue;
-    color: $colors__white;
-  }
-
-  &--coral {
+  &--blog {
     background-color: $colors__coral--dark;
-    color: $colors__white;
-  }
+    color: white;
+    padding: 4rem 0;
 
-  &--steel {
-    background-color: $colors__steel;
-    color: $colors__white;
-  }
-
-  &--left {
-    .hero__container {
-      padding: 4rem 2rem;
-      display: block;
-      text-align: left;
-    }
     .hero__title {
-      font-size: 3rem;
+      font-size: 64px;
+      margin-top: 12px;
     }
-  }
-
-  @include respond-to(small) {
-
-    &--left {
-      .hero__container {
-        padding: 6rem 2rem;
-      }
+    .hero__subtitle {
+      margin-top: 24px;
     }
   }
 

@@ -11,7 +11,7 @@ module.exports = {
     ],
     link: [
       { rel: 'stylesheet', href: 'https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i|Source+Sans+Pro:600,600i' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,300i,600,600i' },
       { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' },
       { rel: 'icon', href: '/jangle-circle.png' }
     ]
@@ -28,7 +28,6 @@ module.exports = {
         'markdown-it-anchor',
         {
           permalink: true,
-          permalinkClass: 'ion-link',
           permalinkSymbol: ''
         }
       ]

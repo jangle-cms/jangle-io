@@ -30,7 +30,16 @@ const createStore = () => {
           ]
         }
       ],
-      searchQuery: ''
+      searchQuery: '',
+      blogPosts: [
+        {
+          title: 'Why Jangle?',
+          date: 'March 19th, 2018',
+          tags: [ 'architecture', 'design', 'philosophy' ],
+          excerpt: `Technology moves pretty fast, and it's kinda hard not to make something useless.`,
+          slug: 'why-jangle'
+        }
+      ]
     },
     getters: {
       results (state) {

@@ -29,7 +29,9 @@
 export default {
   data: () => ({
     links: [
-      { url: '/docs', label: 'docs' }
+      { url: '/guide', label: 'guide' },
+      { url: '/docs', label: 'docs' },
+      { url: '/blog', label: 'blog' }
     ],
     search: {
       query: '',
