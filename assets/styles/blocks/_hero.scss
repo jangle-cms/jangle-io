@@ -6,11 +6,6 @@
   margin: 0;
   border-bottom: solid 1px #eee;
 
-  &--coral {
-    background-color: $colors__coral--hero;
-    color: white;
-  }
-
   &__title {
     font-size: 6rem;
     font-weight: 600;
@@ -31,7 +26,7 @@
   }
 
   &--blog {
-    background-color: $colors__coral--dark;
+    background-color: $colors__coral--hero;
     color: white;
     padding: 4rem 0;
 
