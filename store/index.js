@@ -33,9 +33,16 @@ const createStore = () => {
       searchQuery: '',
       blogPosts: [
         {
+          title: 'Handling Defaults',
+          date: 'March 28th, 2018',
+          tags: [ 'mongoose', 'architecture' ],
+          excerpt: `Mongoose schema defaults are awesome! But how do I represent them in my database?`,
+          slug: 'handling-defaults'
+        },
+        {
           title: 'Why Jangle?',
           date: 'March 19th, 2018',
-          tags: [ 'architecture', 'design', 'philosophy' ],
+          tags: [ 'design', 'architecture' ],
           excerpt: `Technology moves pretty fast, and it's kinda hard not to make something useless.`,
           slug: 'why-jangle'
         }

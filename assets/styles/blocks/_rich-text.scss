@@ -63,7 +63,7 @@
     list-style: disc;
   }
 
-  p, ul, ol, pre {
+  p, ul, ol {
     line-height: 1.5;
     margin-top: 1rem;
     font-size: 20px;
@@ -98,25 +98,33 @@
     border: none;
   }
   
+  pre {
+    border-left: solid 4px $colors__coral;
+    padding: 1rem calc(2rem - 4px);
+    margin: 1.5rem -2rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, .10);
+    overflow: auto;
+    line-height: 1.2;
+  }
+
   code {
     font-family: $fonts__monospace;
+    font-size: .9em;
   }
 
   pre code {
-    padding: 1rem;
-    border-left: solid 4px $colors__steel;
-    margin-right: -2rem;
-    margin-left: -.5rem;
+    font-size: 16px;
   }
 
   blockquote {
+    position: relative;
     margin-top: 1rem;
     margin-right: -2rem;
-    margin-left: -.5rem;
-    padding: 1rem;
+    margin-left: -2rem;
+    padding: 1rem 2rem;
     border-left: solid 4px $colors__steel;
-    background-color: $colors__gray--lighter;
-    font-family: $fonts__monospace;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, .10);
+
     > * {
       margin-top: 0;
     }
