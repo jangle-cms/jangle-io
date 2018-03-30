@@ -7,11 +7,11 @@ Hopefully this blog post will help you learn more about the decisions I've made,
 
 ## Storytime!
 
-Jangle wouldn't even exist if I didn't have the opportunity to work at [One North Interactive](https://www.onenorth.com). It was there I was exposed to a multitude of different content management systems.
+Jangle wouldn't even exist if I didn't have the opportunity to work at a digital agency, fight out of college. It was there I was exposed to a multitude of different content management systems.
 
 My favorite of those systems was [KeystoneJS](http://keystonejs.com/), a free and open-source CMS built on top of NodeJS, by a guy called Jed Watson. KeystoneJS was fast and simple. As a developer, I was able to get up to speed and start creating websites quickly.
 
-Another popular offering at One North was [Sitecore](https://www.sitecore.com), a feature-rich platform built on top of .NET MVC. Sitecore was big and bloated, and as a minimalist web developer, I despised it.
+Another popular offering at my company was [Sitecore](https://www.sitecore.com), a feature-rich platform built on top of .NET MVC. Sitecore was big and bloated, and as a minimalist web developer, I despised it.
 
 But if I truly believed Sitecore was such a bad thing, then why was everyone buying it? Why didn't our clients want to use KeystoneJS?
 
