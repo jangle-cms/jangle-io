@@ -12,7 +12,7 @@
     <!-- Latest Posts -->
     <section class="section">
       <div class="section__container container">
-        <h3 class="section__title">Latest Blog Posts</h3>
+        <h3 class="section__title">Latest Posts</h3>
         <ul class="section__listings listings">
           <li v-for="post in posts" v-bind:key="post.slug" 
             class="listings__item">
@@ -25,9 +25,6 @@
               <li v-for="tag in post.tags" v-bind:key="tag"
                 class="listings__tag">{{tag}}</li>
             </ul>
-            <!-- <div class="listings__buttons button__row">
-              <nuxt-link class="button" v-bind:to="url(post)">Read more</nuxt-link>
-            </div> -->
           </li>
         </ul>
       </div>

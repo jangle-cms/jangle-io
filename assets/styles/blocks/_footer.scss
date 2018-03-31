@@ -1,0 +1,21 @@
+.footer {
+  height: 48px;
+  padding-bottom: 48px;
+  display: flex;
+  align-items: center;
+
+  &__items {
+    font-size: 20px;
+    display: flex;
+    box-sizing: border-box;
+    padding: 0 2rem;
+    justify-content: flex-end;
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-right: 1rem;
+    }
+  }
+
+}

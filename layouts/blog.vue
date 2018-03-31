@@ -17,11 +17,13 @@
           </div>
         </div>
       </div>
+      <SiteFooter />
     </div>
   </div>
 </template>
 
 <script>
+import SiteFooter from '@/components/SiteFooter.vue'
 import Navigation from '@/components/Navigation.vue'
 
 const getPost = ({ $store, $router }) => {
@@ -46,7 +48,8 @@ export default {
     }
   },
   components: {
-    Navigation
+    Navigation,
+    SiteFooter
   },
   data: () => ({
     post: {}

@@ -193,7 +193,7 @@ This allows me to provide initial values when I spin up Jangle in a new environm
 
 ### That's it!
 
-Because Mongoose has solved a lot of difficulut problems under the hood, Jangle can make it really easy to express the kind of stuff you want to store.
+Because Mongoose has solved a lot of difficult problems under the hood, Jangle can make it really easy to express the kind of stuff you want to store.
 
 If you want to try out Jangle yourself, check out the [guide](/guide) for more information!
 

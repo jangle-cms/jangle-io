@@ -33,11 +33,11 @@ const createStore = () => {
       searchQuery: '',
       blogPosts: [
         {
-          title: 'Handling Defaults',
+          title: 'Providing Defaults',
           date: 'March 28th, 2018',
           tags: [ 'mongoose', 'architecture' ],
-          excerpt: `Mongoose schema defaults are awesome! But how do I represent them in my database?`,
-          slug: 'handling-defaults'
+          excerpt: `Mongoose schema defaults are awesome! But how do they work in Jangle?`,
+          slug: 'providing-defaults'
         },
         {
           title: 'Why Jangle?',
