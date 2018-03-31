@@ -189,108 +189,13 @@ Homepage.get()
 
 Hooray, the defaults pulled through!
 
-### What happens when I change a default?
+This allows me to provide initial values when I spin up Jangle in a new environment.
 
-Since I was so hyped that Jangle filled in my defaults for me, I decided to update the default subtitle:
+### That's it!
 
+Because Mongoose has solved a lot of difficulut problems under the hood, Jangle can make it really easy to express the kind of stuff you want to store.
 
-```js
-const jangle = require('@jangle/core')
-const { Schema } = require('mongoose')
-
-jangle.start({
-
-  user: { ... },
-
-  lists: { ... },
-
-  items: {
-    Homepage: new Schema({
-      heroTitle: {
-        type: String,
-        required: true,
-        default: 'Jangle'
-      },
-      heroSubtitle: {
-        type: String,
-        required: true,
-        default: 'a cms for winners!'
-      }
-    })
-  }
-
-})
-```
-
-When doing another `Homepage.get()`, this is what I got back:
-
-```js
-{
-  _id: '...',
-  heroTitle: 'Jangle',
-  heroSubtitle: 'a cms for humans.',
-  jangle: { ... }
-}
-```
-
-...wait. Is that what a user would expect?
-
-
-## Let's find out!
-
-Whenever I run into a potential issue designing Jangle, I like to ask:
-
-> "What would a normal human expect?"
-
-It turns out there are a lot of normal people out there, so I need to explore a few options:
-
-#### 1. Don't store defaults at all.
-
-If you want an update to `heroTitle`'s default value to show as a fallback, don't store any defaults in the database.
-
-If the user has the same `Homepage` schema from before:
-
-```js
-[
-  {
-    _id: '...',
-    jangle: { ... }
-  }
-]
-```
-
-I tried this approach out first, and created a function called `provideDefaultValues` that merged the items with their defaults (for any blank fields).
-
-This worked great, and returned the most recent `default` every time.
-
-But it brought up a few interesting questions:
-
-1. What if I query for "Jangle" in the database? Should the results be blank?
-
-1.  Mongoose allows the use of functions to provide defaults. Should I really run those everytime?
-
-For the second question, I thought back to the `BlogPost` default value: `Date.now`. The whole benefit of that was it allowed new blog posts to set a default date on the fly. Setting the date to `Date.now()` on every query doesn't really make sense.
-
-And I know for a fact that `date` is an _incredibly_ valuable option when querying blog posts. So that answers my first question: I should't keep that information out of the database.
-
-#### 2. Only do it for default functions?
-
-What if I only stored the result of default operations if the user gave me a function? Would that prevent weird issues? Or would it cause confusion?
-
-Whenever I introduce divergence by creating another rule for people to remember, I feel really bad about it. I need to make sure that the result of the divergence is actually helpful, so I don't end up making someone make a misguided decision.
-
-#### 3. Leave it alone!
-
-Mongoose obviously made that decision for a good reason, so I might end up introducing unnecessary complexity without adding much value!
-
-Another important thing is that reimplementing the definition of `default` would mislead anyone familiar with it's usage the Mongoose community. It's not cool to confuse people.
-
-
-## The game is hard.
-
-The best thing to do when I am faced with a weird problem like this, is talk it over with my nerdy friends. The best parts of Jangle have come from hearing their experiences and including their perspectives in the decision-making process.
-
-So stay tuned for another post explaining what the heck I'm going to do.
+If you want to try out Jangle yourself, check out the [guide](/guide) for more information!
 
 __Thanks for reading!__
 
