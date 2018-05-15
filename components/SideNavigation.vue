@@ -1,53 +1,41 @@
 <template>
   <aside class="sidenav">
     <section class="sidenav__section"
-      v-if="hasChildren(section)"
-      v-bind:class="sectionClasses(section)"
-      v-for="(section, i) in sections" v-bind:key="i">
+      v-if="hasChildren(doc)">
       <h3 class="sidenav__header">
-        <nuxt-link class="sidenav__header-link link" v-bind:to="url(section)" v-html="section.title"></nuxt-link>
+        <nuxt-link class="sidenav__header-link link" v-bind:to="url(path)" v-html="doc.title"></nuxt-link>
       </h3>
-      <p class="sidenav__list-heading">Methods</p>
-      <ol class="sidenav__links">
-        <li class="sidenav__link-item"
-          v-for="(child, j) in section.methods" v-bind:key="j">
-          <nuxt-link
-            class="sidenav__link link" v-bind:to="url(section, child.toLowerCase())" v-html="child"></nuxt-link>
-        </li>
-      </ol>
-      <p class="sidenav__list-heading">Types</p>
-      <ol class="sidenav__links">
-        <li class="sidenav__link-item"
-          v-for="(child, j) in section.types" v-bind:key="j">
-          <nuxt-link
-            class="sidenav__link link" v-bind:to="url(section, child.toLowerCase())" v-html="child"></nuxt-link>
-        </li>
-      </ol>
+      <div class="sidenav__section"
+        v-for="(section, name, i) in doc.sections"
+        v-bind:key="i"
+        v-bind:class="sectionClasses(section)"
+        >
+        <p class="sidenav__list-heading">{{ name }}</p>
+        <ol class="sidenav__links">
+          <li class="sidenav__link-item"
+            v-for="(child, j) in section" v-bind:key="j">
+            <nuxt-link class="sidenav__link link" v-bind:to="url(path, child.toLowerCase())" v-html="child"></nuxt-link>
+          </li>
+        </ol>
+      </div>
     </section>
   </aside>
 </template>
 
 <script>
 export default {
-  computed: {
-    sections () {
-      return this.$store.state.docs
-    },
-    routeNeedsSidenav () {
-      return this.$route.path.indexOf('/docs') > -1
-    }
-  },
+  props: [ 'path', 'doc' ],
   methods: {
-    url (section, hash) {
-      return `/docs/${section.path}` + (hash ? `#${hash}` : '')
+    url (path, hash) {
+      return `/docs/${path}` + (hash ? `#${hash}` : '')
     },
-    hasChildren (section) {
-      return section && section.methods && section.methods.length > 0
+    hasChildren (doc) {
+      return doc.sections && Object.keys(doc.sections).some(name => doc.sections[name].length > 0)
     },
-    sectionClasses (section) {
-      const isActiveSection = this.$route.params.section === section.path
+    sectionClasses (sections) {
+      const hasActiveSection = sections.some(section => this.$route.hash === '#' + section.toLowerCase())
       return {
-        'sidenav__section--active': isActiveSection
+        'sidenav__section--active': hasActiveSection
       }
     }
   }

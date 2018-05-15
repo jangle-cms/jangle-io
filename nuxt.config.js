@@ -28,7 +28,7 @@ module.exports = {
         'markdown-it-anchor',
         {
           permalink: true,
-          permalinkSymbol: ''
+          permalinkSymbol: '#'
         }
       ]
     ]

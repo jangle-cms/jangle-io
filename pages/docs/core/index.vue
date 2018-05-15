@@ -1,27 +1,30 @@
-<template lang="md">### `start`
-> (config?: [Config](/docs/core#config)) => Promise<[ProtectedJangleCore](/docs/core#protectedjanglecore)>
+<template lang="md">
+### `start`
+```ts
+(config: Config) => Promise<ProtectedJangleCore>
+```
 
 __Description:__
 
-Starts an instance of Jangle, returning an object containing protected services.
+Starts an instance of Jangle, returning a `Promise` with all your lists, items, and authentication services.
 
 __Parameters:__
 
-- `config` - [`Config`](/docs/core#config) (Optional)
+- `config` - [`Config`](/docs/core#config)
 
 __Returns:__
 
-A [`ProtectedJangleCore`](/docs/core#protectedjanglecore) object, containing services and authentication helpers.
+A [`ProtectedJangleCore`](/docs/core#protectedjanglecore) object.
 
-All protected routes will require an authentication token.
+Because no user was provided, all protected list and item functions will require an authentication token.
 
 __Example:__
-```js
-const Jangle = require('jangle-core')
+```ts
+const Jangle = require('@jangle/core')
 
 Jangle.start()
-  .then(({ services, auth }) => {
-    // ... access `services` and `auth`
+  .then(({ lists, items, auth }) => {
+    // ... access content and auth functions
   })
   .catch(reason => {
     // ... handle initialization errors.
@@ -31,7 +34,10 @@ Jangle.start()
 ---
 
 ### `startAsUser`
-> (user: [UserConfig](/docs/core#userconfig), config?: [Config](/docs/core#config)) => Promise<[JangleCore](/docs/core#janglecore)>
+
+```ts
+(user: UserConfig, config: Config) => Promise<JangleCore>
+```
 
 __Description:__
 
@@ -41,26 +47,25 @@ __Parameters:__
 
 - `user` - [`UserConfig`](/docs/core#userconfig)
 
-- `config` - [`Config`](/docs/core#config) (Optional)
+- `config` - [`Config`](/docs/core#config)
 
 __Returns:__
 
-A new [`JangleCore`](/docs/core#janglecore) object, containing services and authentication helpers.
+A new [`JangleCore`](/docs/core#janglecore) object. This contains lists, items, and authentication helpers.
 
-The [`JangleCore`](/docs/core#janglecore) object does not require any authentication tokens.
+The [`JangleCore`](/docs/core#janglecore) object does not require any authentication tokens. The provided user login will be associated with any protected operations.
 
-It will use the provided user for all protected requests.
 
 __Example:__
-```js
-const Jangle = require('jangle-core')
+```ts
+const Jangle = require('@jangle/core')
 
 Jangle.startAsUser({
   email: 'ryan@jangle.com',
   password: 'password'
 })
-  .then(({ services, auth }) => {
-    // ... access `services` and `auth`
+  .then(({ lists, items, auth }) => {
+    // ... access content and auth functions
   })
   .catch(reason => {
     // ... handle initialization errors.
@@ -77,8 +82,9 @@ type Config = {
     content: string
     live: string
   }
+  lists: Dict<Schema>
+  items: Dict<Schema>
   secret: string
-  schemas: Dict<Schema>
 }
 ```
 
@@ -88,8 +94,9 @@ The configuration object that Jangle uses on startup.
 
 - `mongo.content` - The MongoDB URI for storing our private content and Jangle metadata.
 - `mongo.live` - The MongoDB URI for storing our public items.
+- `lists` - An object mapping list names to their Mongoose schemas.
+- `items` - An object mapping item names to their Mongoose schemas.
 - `secret` - The secret used to hash passwords and generate authentication tokens.
-- `schemas` - An object mapping model names to our Mongoose Schemas.
 
 __Example:__
 ```js
@@ -102,10 +109,9 @@ const config = {
     live: 'mongodb://localhost/jangle-live'
   },
 
-  // Important: Use an environment variable for this!
   secret: 'some very secret thing',
 
-  schemas: {
+  lists: {
     Person: new Schema({
       name: {
         required: true,
@@ -124,12 +130,27 @@ const config = {
         type: Schema.ObjectId
       }
     })
+  },
+
+  items: {
+    HomepageSettings: new Schema({
+      title: {
+        type: String,
+        required: true,
+        default: 'Jangle'
+      },
+      subtitle: {
+        type: String,
+        required: true,
+        default: 'A cms for humans.'
+      }
+    })
   }
 
 }
 ```
 
-__Helpful Context__:
+__Related Items__:
 
 - [`Schema`](http://mongoosejs.com/docs/guide.html) - Used in the `schemas` property.
 
@@ -144,6 +165,7 @@ __Helpful Context__:
 
 ```ts
 type UserConfig = {
+  name: string
   email: string
   password: string
 }
@@ -153,18 +175,20 @@ __Description:__
 
 The Jangle user credentials to use for the application. (Used in [`startAsUser`](/docs/core#startasuser))
 
-- `email` - The MongoDB URI for storing our private content and Jangle metadata.
-- `password` - The secret used to hash passwords and generate authentication tokens.
+- `name` - The display name for our user (used during sign up).
+- `email` - The email address for our user.
+- `password` - The password for our user.
 
 __Example:__
-```js
+```ts
 const userConfig = {
+  name: 'Ryan',
   email: 'ryan@jangle.com',
   password: 'password'
 }
 ```
 
-__Helpful Context__:
+__Related Items__:
 
 - [`startAsUser`](/docs/core#startasuser) - Uses this configuration.
 
@@ -175,8 +199,9 @@ __Helpful Context__:
 
 ```ts
 type ProtectedJangleCore = {
-  services: Dict<ProtectedService<IJangleItem>>
-  auth: Authorization<ProtectedMetaService>
+  lists: Dict<ProtectedListService>
+  items: Dict<ProtectedItemService>
+  auth: Authorization
 }
 ```
 
@@ -184,12 +209,13 @@ __Description:__
 
 The object containing [protected services](/docs/core#protectedservice) and the [authorization service](/docs/core#auth).
 
-- `services` - An object mapping our schemas to their dynamically generated functions.
-- `auth` - An object containing a protected [`JangleUser`](/docs/core#jangleuser) service and helpful functions for user authentication.
+- `lists` - An object mapping list names to their dynamically generated functions.
+- `items` - An object mapping item names to their dynamically generated functions.
+- `auth` - An object containing helpful functions for user authentication.
 
 __Example:__
-```js
-const jangle = require('jangle-core')
+```ts
+const jangle = require('@jangle/core')
 
 jangle.start()
   .then(core => {
@@ -198,17 +224,15 @@ jangle.start()
   })
 ```
 
-__Helpful Context__:
+__Related Items__:
 
 - [`start`](/docs/core#start) - Returns this object in a `Promise`.
 
-- [`ProtectedService`](/docs/core#protectedservice) - the type of service on the `services` property.
+- [`ProtectedListService`](/docs/core#protectedlistservice) - the type of service on the `lists` property.
+
+- [`ProtectedItemService`](/docs/core#protecteditemservice) - the type of service on the `items` property.
 
 - [`Authorization`](/docs/core#authorization) - the type for the `auth` property.
-
-- [`ProtectedMetaService`](/docs/core#protectedmetaservice) - the type for the `auth.User` service.
-
-- [`JangleCore`](/docs/core#janglecore) - the authenticated version of this type.
 
 
 ---
@@ -217,8 +241,9 @@ __Helpful Context__:
 
 ```ts
 type JangleCore = {
-  services: Dict<Service<IJangleItem>>
-  auth: Authorization<MetaService>
+  lists: Dict<ListService>
+  items: Dict<ItemService>
+  auth: Authorization
 }
 ```
 
@@ -233,7 +258,7 @@ Unlike [`ProtectedJangleCore`](/docs/core#protectedjanglecore`), the services he
 
 __Example:__
 ```js
-const jangle = require('jangle-core')
+const jangle = require('@jangle/core')
 
 jangle.start()
   .then(core => {
@@ -242,17 +267,71 @@ jangle.start()
   })
 ```
 
-__Helpful Context__:
+__Related Items__:
 
 - [`startAsUser`](/docs/core#startasuser) - Returns this object in a `Promise`.
 
-- [`Service`](/docs/core#service) - the type of service on the `services` property.
+- [`ListService`](/docs/core#listservice) - the type of service on the `lists` property.
+
+- [`ItemService`](/docs/core#itemservice) - the type of service on the `items` property.
 
 - [`Authorization`](/docs/core#authorization) - the type for the `auth` property.
 
-- [`MetaService`](/docs/core#metaservice) - the type for the `auth.User` service.
+---
 
-- [`ProtectedJangleCore`](/docs/core#protectedjanglecore) - the protected version of this type, requiring a token for each function.
+### `ProtectedListService`
+
+```ts
+type ProtectedListService = {
+
+  any: ProtectedAnyFunction
+  count: ProtectedCountFunction
+  find: ProtectedFindFunction
+  get: ProtectedGetFunction
+
+  create: ProtectedCreateFunction
+  update: ProtectedUpdateFunction
+  patch: ProtectedPatchFunction
+  remove: ProtectedRemoveFunction
+
+  isLive: ProtectedIsLiveFunction
+  publish: ProtectedPublishFunction
+  unpublish: ProtectedUnpublishFunction
+  live: LiveService
+
+  history: ProtectedHistoryFunction
+  previewRollback: ProtectedPreviewRollbackFunction
+  rollback: ProtectedRollbackFunction
+
+  schema: ProtectedSchemaFunction
+
+}
+```
+
+---
+
+### `ProtectedItemService`
+
+```ts
+type ProtectedItemService = {
+
+  get: ProtectedItemGetFunction
+  update: ProtectedItemUpdateFunction
+  patch: ProtectedItemPatchFunction
+
+  isLive: ProtectedItemIsLiveFunction
+  publish: ProtectedItemPublishFunction
+  unpublish: ProtectedItemUnpublishFunction
+  live: ItemLiveService
+
+  history: ProtectedItemHistoryFunction
+  previewRollback: ProtectedItemPreviewRollbackFunction
+  rollback: ProtectedItemRollbackFunction
+
+  schema: ProtectedSchemaFunction
+
+}
+```
 
 </template>
 

@@ -1,6 +1,6 @@
 .rich-text {
 
-  padding-bottom: 6rem;
+  padding-bottom: 4rem;
 
   &--legible {
     max-width: 70ch;
@@ -18,6 +18,7 @@
     font-family: $fonts__header;
     margin-top: -4rem;
     padding-top: 6rem;
+    z-index: 1;
   }
 
   > * {
@@ -37,6 +38,7 @@
 
   h3 {
     font-size: 1.6rem;
+    z-index: 0;
   }
 
   h4 {
@@ -61,6 +63,11 @@
 
   ul {
     list-style: disc;
+  }
+
+  p, ul, ol, pre {
+    position: relative;
+    z-index: 1;
   }
 
   p, ul, ol {
@@ -100,7 +107,7 @@
   
   pre {
     border-left: solid 4px $colors__coral;
-    padding: 1rem calc(2rem - 4px);
+    padding: 0 calc(2rem - 4px);
     margin: 1.5rem -2rem;
     box-shadow: 0 4px 16px rgba(0, 0, 0, .10);
     overflow: auto;
@@ -113,7 +120,11 @@
   }
 
   pre code {
+    display: block;
+    overflow-x: auto;
     font-size: 16px;
+    padding: 1rem 0;
+    background-color: rgba(0, 0, 0, 0);
   }
 
   blockquote {
@@ -156,17 +167,7 @@
     border-bottom: solid 1px $colors__gray--light; 
   }
 
-  .ion-link {
-    display: inline-block;
-    padding-left: .25em;
-    color: $colors__steel;
-    opacity: .5;
-    transition: opacity .3s ease-in-out;
-    &:hover,
-    &:focus {
-      background: none;
-      color: $colors__steel;
-      opacity: 1;
-    }
+  .hljs {
   }
+
 }

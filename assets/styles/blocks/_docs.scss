@@ -1,4 +1,8 @@
 .docs {
+  &__body {
+    margin-top: -6rem;
+  }
+
   &__content {
     box-sizing: border-box;
     padding: 2rem;
@@ -6,6 +10,10 @@
 
   &__container {
     padding: 0;
+  }
+
+  .header-anchor {
+    margin-left: .25em;
   }
 
   @include respond-to(small) {

@@ -9,27 +9,60 @@ const highlightMatch = (words, query) =>
 const createStore = () => {
   return new Vuex.Store({
     state: {
-      docs: [
-        {
+      docs: {
+        'core': {
           title: 'Jangle Core',
-          path: 'core',
-          methods: [
-            'start',
-            'startAsUser'
-          ],
-          types: [
-            'Config',
-            'UserConfig',
-            'ProtectedJangleCore',
-            'JangleCore'
-            // 'LiveService',
-            // 'MetaService',
-            // 'Service',
-            // 'ProtectedMetaService',
-            // 'ProtectedService'
-          ]
+          sections: {
+            'Start Methods': [
+              'start',
+              'startAsUser'
+            ],
+            'Configuration': [
+              'Config',
+              'UserConfig'
+            ],
+            'Return Values': [
+              'ProtectedJangleCore',
+              'JangleCore'
+            ],
+            'List Service': [
+              'ListService',
+              'ProtectedListService',
+              'AnyFunction',
+              'CountFunction',
+              'FindFunction',
+              'GetFunction',
+              'CreateFunction',
+              'UpdateFunction',
+              'PatchFunction',
+              'RemoveFunction',
+              'IsLiveFunction',
+              'PublishFunction',
+              'UnpublishFunction',
+              'HistoryFunction',
+              'PreviewRollbackFunction',
+              'RollbackFunction',
+              'SchemaFunction',
+              'LiveService'
+            ],
+            'Item Service': [
+              'ItemService',
+              'ProtectedItemService',
+              'ItemGetFunction',
+              'ItemUpdateFunction',
+              'ItemPatchFunction',
+              'ItemIsLiveFunction',
+              'ItemPublishFunction',
+              'ItemUnpublishFunction',
+              'ItemHistoryFunctio',
+              'ItemPreviewRollbackFunction',
+              'ItemRollbackFunction',
+              'SchemaFunction',
+              'ItemLiveService'
+            ]
+          }
         }
-      ],
+      },
       searchQuery: '',
       blogPosts: [
         {

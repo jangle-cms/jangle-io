@@ -5,7 +5,7 @@
         <h1 class="hero__title">Guide</h1>
         <h2 class="hero__subtitle">"Simplicity isn't just for beginners."</h2>
         <div class="hero__buttons">
-          <button class="button">npm install @jangle/core</button>
+          <button class="button button--disabled">Coming soon!</button>
         </div>
       </div>
     </div>

@@ -2,6 +2,7 @@
   height: 100%;
   box-sizing: border-box;
   padding: 1rem 2rem;
+  overflow: auto;
 
   &__container {
     padding-left: calc(50vw - 640px);
@@ -16,18 +17,27 @@
   }
 
   &--fixed {
+    box-sizing: border-box;
     width: 320px;
     border-right: solid 1px $colors__gray--light;
     background-color: $colors__white;
   }
 
   &__section {
-    padding-top: 1rem;
+    margin-top: .5rem;
+    &--active {
+      .sidenav__list-heading {
+        font-weight: $fonts__bold;
+      }
+      .sidenav__link-item {
+        border-left-color: $colors__steel;
+      }
+    }
   }
 
   &__header {
     font-family: $fonts__header;
-    font-size: 1.2rem;
+    font-size: 28px;
   }
 
   &__list-heading {

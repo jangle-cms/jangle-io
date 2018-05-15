@@ -12,8 +12,12 @@
   transition: transform .15s ease-in-out, box-shadow .3s ease-in-out;
 
   &__row {
-    .button:not(:last-child) {
-      margin-right: 1rem;
+    .button {
+      margin-top: 1rem;
+
+      &:not(:last-child) {
+        margin-right: 1rem;
+      }
     }
   }
 

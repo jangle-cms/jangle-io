@@ -1,0 +1,15 @@
+.blog {
+  &__navigation-row {
+    margin-top: 3rem;
+  }
+  &__navigation-item {
+    text-align: right;
+  }
+  &__navigation-title {
+    font-weight: $fonts__bold;
+    font-size: 16px;
+  }
+  &__navigation-link {
+    font-size: 20px;
+  }
+}
